@@ -1,5 +1,8 @@
 version: '3'
 
+# создаем сам проект django -> 
+# docker-compose run django django-admin startproject my_project . 
+
 services:
   django:
     # build указывает путь к dockerfile по которому будем собирать текущий сервис
@@ -16,7 +19,7 @@ services:
     volumes:
       # бемер весь локальный проект : прекидываем внутрь папки хоста контейнера (на локальный сервер)
       # путь к контейнеру берем из WORKDIR (dockerfile)
-      . : /usr/src/app
+      - .:/usr/src/app
 
   
   postgres_db:
