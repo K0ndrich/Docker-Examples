@@ -19,6 +19,7 @@ services:
     volumes:
       # бемер весь локальный проект : прекидываем внутрь папки хоста контейнера (на локальный сервер)
       # путь к контейнеру берем из WORKDIR (dockerfile)
+      # . указывает название и пать папки хоста, где будут хранитсья наши данные даже после удаления контейнеров(сервисов)
       - .:/usr/src/app
 
   
@@ -30,3 +31,13 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     container_name: my_postgres_db
+    volumes:
+        # my_saves_from_db название постоянной папки хоста на удаленном сервер, где будут постоянно храниться данные из базы данных 
+        # /var/lib/postgresql/data/ путь к папке хоста на удаленном сервере
+      - my_saves_from_db:/var/lib/postgresql/data/
+
+# в конце нужно писать глобальный volumes, где указывать названия папок с постояными данными контейнеров(сервисов)
+volumes:
+  my_saves_from_db: null
+
+
