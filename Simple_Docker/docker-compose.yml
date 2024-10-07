@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  django:
+    build: .
+    container_name: my_django
+    # command указывает команды которые будут выполняться при сборке текущего сервиса django
+    command:
+     
