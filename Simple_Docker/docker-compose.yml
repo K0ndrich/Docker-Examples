@@ -32,7 +32,7 @@ services:
       - POSTGRES_PASSWORD=postgres
     container_name: my_postgres_db
     volumes:
-        # my_saves_from_db название постоянной папки хоста на удаленном сервер, где будут постоянно храниться данные из базы данных 
+        # my_saves_from_db название постоянной папки локального проекта : путь где она будте лежать в папке хоста на удаленном сервере 
         # /var/lib/postgresql/data/ путь к папке хоста на удаленном сервере
       - my_saves_from_db:/var/lib/postgresql/data/
 
